@@ -34,7 +34,7 @@ void APlayerCharacterBase::Tick(float DeltaSeconds)
 			const FRotator YawRotation(0, Rotation.Yaw, 0);
 			
 			//Calcuate Control Vector By Getting Normal Of Forward And Right Vectors And Multiplying Them With Control Input X And Y 
-			ControlVector = (FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X) * ControlInput.X) +
+			FVector ControlVector = (FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X) * ControlInput.X) +
 				(FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y) * ControlInput.Y).GetSafeNormal();
 					
 			//Interp Forward Vector To Control Vector To Get Move Direction
